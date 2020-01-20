@@ -12,7 +12,7 @@ var numPtr *int
   - 빈 포인터형 변수 메모리 할당 포인터_변수 = new(자료형)
   
     ```go
-    var numPtr *int = new(int)
+  var numPtr *int = new(int)
   ```
   
 - 역참조(dereference) *포인터_변수명
