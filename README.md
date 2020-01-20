@@ -1,6 +1,27 @@
 # Go_prac
 ###  가장 빨리 만나는 GO언어 실습내용
 
+- [2019-11-01] UNIT28
+
+  ```go
+//포인터형 변수 var 변수명 *자료형
+  var numPtr *int
+
+  //빈 포인터형 변수 메모리 할당 포인터_변수 = new(자료형)
+  var numPtr *int = new(int)
+  
+  //역참조(dereference) *포인터_변수명
+  *numPtr = 1
+  
+//일반 변수에 참조를 사용하면 포인터형 변수에 대입가능 &변수명
+  var num int = 1
+var numPtr * int = &num
+  ```
+  
+
+  
+  
+  
 - [2019-10-28 ~ 2019-10-31] UNIT 25 - UNIT 27
 
   - 클로저(Closure) : 함수를 선언 및 정의할 수 있고, 바깥쪽 함수에 선언된 변수에도 접근할 수 있는 변수
