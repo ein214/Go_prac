@@ -6,7 +6,7 @@
   - Go언어에서 구조체 사용법 type 구조체명 struct { }
 
     ```go
-  type Rect struct {
+    type Rect struct {
     	width int
     	height int
     }
