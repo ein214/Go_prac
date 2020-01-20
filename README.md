@@ -3,24 +3,32 @@
 
 - [2019-11-01] UNIT28
 
-  ```go
-/*포인터형 변수 var 변수명 *자료형*/
-  var numPtr *int
+  - 포인터형 변수 var 변수명 *자료형
 
-  /*빈 포인터형 변수 메모리 할당 포인터_변수 = new(자료형)*/
-  var numPtr *int = new(int)
+    ```go
+var numPtr *int
+    ```
   
-  /*역참조(dereference) *포인터_변수명*/
-  *numPtr = 1
+  - 빈 포인터형 변수 메모리 할당 포인터_변수 = new(자료형)
   
-/*일반 변수에 참조를 사용하면 포인터형 변수에 대입가능 &변수명*/
-  var num int = 1
-var numPtr * int = &num
+    ```go
+    var numPtr *int = new(int)
   ```
   
-
+- 역참조(dereference) *포인터_변수명
   
+    ```go
+  *numPtr = 1
+    ```
   
+  - 일반 변수에 참조를 사용하면 포인터형 변수에 대입가능 &변수명
+  
+    ```go
+  var num int = 1
+    var numPtr * int = &num
+  ```
+  
+    
   
 - [2019-10-28 ~ 2019-10-31] UNIT 25 - UNIT 27
 
