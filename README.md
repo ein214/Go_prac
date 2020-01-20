@@ -6,27 +6,27 @@
   - 포인터형 변수 var 변수명 *자료형
 
     ```go
-var numPtr *int
+    var numPtr *int
     ```
   
   - 빈 포인터형 변수 메모리 할당 포인터_변수 = new(자료형)
   
     ```go
-  var numPtr *int = new(int)
-  ```
+    var numPtr *int = new(int)
+    ```
   
-- 역참조(dereference) *포인터_변수명
+  - 역참조(dereference) *포인터_변수명
   
     ```go
-  *numPtr = 1
+    *numPtr = 1
     ```
   
   - 일반 변수에 참조를 사용하면 포인터형 변수에 대입가능 &변수명
   
     ```go
-  var num int = 1
+    var num int = 1
     var numPtr * int = &num
-  ```
+    ```
   
     
   
