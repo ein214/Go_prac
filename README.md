@@ -1,6 +1,32 @@
 # Go_prac
 ###  가장 빨리 만나는 GO언어 실습내용
 
+- [2019-11-04] UNIT29
+
+  - Go언어에서 구조체 사용법 type 구조체명 struct { }
+
+    ```go
+  type Rect struct {
+    	width int
+    	height int
+    }
+    ```
+    
+  - Rect  타입으로 인스턴스 생성 var 변수명 구조체_타입
+  
+    ```go
+    var rect Rect
+    ```
+  
+  - 포인터에 메모리 공간 할당 구조체_포인터 = new(구조체_타입)
+  
+    ```go
+    var rect1 *Rect
+    rect1 = new(Rect)
+    ```
+  
+    
+  
 - [2019-11-01] UNIT28
 
   - 포인터형 변수 var 변수명 *자료형
