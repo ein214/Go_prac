@@ -10,7 +10,7 @@
 - [2019-11-08] Unit 41 출력함수 Print
 
   - *func Print(a ...interface{})(n int, err error)*  : 값을 그자리에서 출력(줄바꿈없음)
-- *func Println(a ...interface{})(n int, err error)* : 값을 출력한 뒤 새 줄로 넘어감
+  - *func Println(a ...interface{})(n int, err error)* : 값을 출력한 뒤 새 줄로 넘어감
   - *func Printf(format string, a ...interface{})(n int, err error)* : 형식을 지정하여 값을 출력
   - 형식 지정자 종류
     - %v : 모든 값을 사용할 수 있는 기본 지정자. 슬라이스, 맵, 포인터, 구조체, 인터페이스 등 
