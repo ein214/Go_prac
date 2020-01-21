@@ -1,6 +1,67 @@
 # Go_prac
 ###  가장 빨리 만나는 GO언어 실습내용
 
+- [2019-11-08] Unit 41 출력함수 Print
+
+  - *func Print(a ...interface{})(n int, err error)*  : 값을 그자리에서 출력(줄바꿈없음)
+- *func Println(a ...interface{})(n int, err error)* : 값을 출력한 뒤 새 줄로 넘어감
+  - *func Printf(format string, a ...interface{})(n int, err error)* : 형식을 지정하여 값을 출력
+  - 형식 지정자 종류
+    - %v : 모든 값을 사용할 수 있는 기본 지정자. 슬라이스, 맵, 포인터, 구조체, 인터페이스 등 
+      %+v처럼 +를 붙이면 구조체 필드도 함께 표시
+    - %#v : 타입과 함께 값 표현
+    - %T : 타입을 표현
+    - %% : 아무값도 표현하지 않고, % 문자를 그대로 출력
+    - %t : 불을 표현 
+    - %b : 2진수
+    - %c : 유니코드로 된 문자 하나를 표현
+    - %d : 10진수를 표현
+    - %o : 8진수 표현
+    - %q : 문자열을 escape하여 표현 
+    - %x/%X : 숫자와 영문 소문자/대문자로 16진수를 표현
+    - %U : 유니코드 형식으로 표현
+    - %b : 실수를 2의 제곱으로 표현
+    - %e : 실수를 부동소수점으로 표현
+    - %E : 실수를 부동소수점으로 표현하고 E는 대문자 
+    - %f, %F : 실수를 고정소수점으로 표현
+    - %g : 실수에서 지수가 크면 %e, %E로 표현, 지수가 작으면 %f, %F로 표현 
+    - %s : 문자열을 표현
+    - %p : 포인터, 채널을 표현, 앞에 0x가 붙음
+  
+- [2019-11-08] Unit 36~37 리플렉션/리플렉션을 이용한 동적 함수 생성 
+
+  - 실행 시점에 인터페이스나 구조체 등의 타입 정보를 얻어내거나 결정하는 기능
+- *reflect.Typeof* 함수를 사용하면 일반 자료형이나 구조체의 타입을 알 수 있음. 
+  - *reflect.Valueof* 함수는 값 정보 확인 
+  - 포인터는 일반 변수와 다르게 *relect.Valueof* 함수로 값 정보를 얻어온 뒤 다시 *Elem* 함수로 값 정보를 가져와야함. 
+  - *reflect.MakeFunc*
+  
+  ```go
+  import (
+  	"fmt"
+  	"reflect"
+  )
+  
+  //매개변수와 리턴값은 반드시 []relect.Value를 사용
+  func h(args []reflect.Value) []reflect.Value {
+      fmt.Println("Hello, world!")
+      return nil
+  }
+  
+  func main() {
+      var hello func()	//함수를 담을 변수 선언
+      
+      fn := reflect.ValueOf(&hello).Elem()		//hello의 주소를 넘긴뒤 elem으로 값 정보 가져옴
+      
+      v := reflect.MakeFunc(fn.Type(), h)	//h의 함수정보를 생성
+      fn.set(v)	//hello의 값 정보인 fn에 h의 함수 정보 v를 설정하여 함수를 연결
+      
+      hello()
+  }
+  ```
+  
+  
+  
 - [2019-11-08] Unit 35 동기화 객체
 
   - 고루틴의 실행 흐름을 제어하는 동기화 객체
