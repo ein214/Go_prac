@@ -9,6 +9,7 @@ go 함수명
   ```go
     func hello() {
         fmt.Println("Hello, world!")
+    }
     
     func main() {
         go hello()		//함수를 고루틴으로 실행
