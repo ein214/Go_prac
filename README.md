@@ -1,6 +1,39 @@
 # Go_prac
 ###  가장 빨리 만나는 GO언어 실습내용
 
+- [2019-11-08] Unit 35 동기화 객체
+
+  - 고루틴의 실행 흐름을 제어하는 동기화 객체
+  - Mutex: 뮤텍스, 상호배제(mutual exclusion) 여러 스레드(고루틴)에서 공유되는 데이터를 보호할 때 주로 사용
+      - sync.Mutex
+      - func(m *Mutex) Lock(): 뮤텍스 잠금
+      - func(m *Mutex) Unlock(): 뮤텍스 잠금해제
+    - RWMutex: 읽기/쓰기 뮤텍스, 읽기와 쓰기 동작을 나누어서 잠금을 걸 수 있음. 쓰기 동작보다 읽기 동작이 많을 때 유리함
+      - 읽기 락(Read Lock) : 읽기 락끼리는 서로를 막지 않음. 쓰기락은 막음
+      - 쓰기 락(Write Lock) : 쓰기 시도중에 다른곳에서 이전값을 읽으면 안됨. 읽기 쓰기 락 모두 막음
+      - sync.RWMutex
+      - func (rw *RWMutex) Lock(), func (rw *RWMutex) Unlock() : 쓰기 뮤텍스 잠금, 잠금 해제
+      - func (rw *RWMutex) RLock(), func (rw *RWMutex) RUnlock() : 읽기 뮤텍스 잠금, 잠금 해제
+    - Cond: 조건 변수 condition variable 대기하고 있는 하나의 객체를 깨울 수도 있고 여러개를 동시에 깨울 수도 있음.
+      - sync.Cond
+      - func NewCond(l Locker) *Cond : 조건 변수 생성
+      - func (c *Cond) Wait() : 고루틴 실행을 멈추고 대기
+      - func (c *Cond) Signal() : 대기하고 있는 고루틴을 하나만 깨움
+      - func (c *Cond) Broadcast() : 대기하고 있는 모든 고루틴을 깨움
+    - Once : 특정 함수를 딱 한번만 실행. 반복문안에서 각종 초기화를 할 때 유용
+      - sync.Once()
+      - func (*Once) Do(f func())
+    - Pool : 고루틴에서 사용할 수 있는 객체 풀, 자주 사용하는 객체를 풀에 보관했다가 다시 사용. 메모리 할당과 해제 횟수를 줄여 성능을 높일 때 사용
+      - sync.Pool
+      - func(p *Pool) Get( ) interface {} : 풀에 보관된 객체를 가져옴
+      - func(p *Pool) Put(x interface{}) : 풀에 객체를 보관
+    - WaitGroup : 고루틴이 모두 끝날때까지 기다리는 기능
+      - sync.WaitGroup
+      - func (wg *WaitGroup) Add(delta int) : 대기 그룹에 고루틴계수 추가
+      - func (wg *WaitGroup) Done() : 고루틴이 끝났다는 걸 알려줄 때 사용
+      - func (wg *WaitGroup) Wait() : 모든 고루틴이 끝날 때까지 기다림
+    - Atomic : 원자적 연산이라고도 하며 더 이상 쪼갤 수 없는 연산, 고루틴, 멀티코어 환경에서 안전하게 값을 연산하는 기능. 여러 스레드, CPU코어에서 같은 변수를 수정할 때 서로 영향을 받지않고 안전하게 연산 가능 
+  
 - [2019-11-06] Unit 34 채널 
 
   - 고루틴끼리 데이터를 주고받고, 실행 흐름을 제어하는 기능. 모든 타입을 채널로 사용가능
