@@ -4,7 +4,7 @@
 - [2019-12-26] 입력함수
 
   - *func Scan(a ...interface{}) (n int, err error)* : 콘솔에서 공백, 새 줄로 구분하여 입력을 받음
-- *func Scanln(a ...interface{}) (n int, err error)* : 콘솔에서 공백으로 구분하여 입력을 받음
+  - *func Scanln(a ...interface{}) (n int, err error)* : 콘솔에서 공백으로 구분하여 입력을 받음
   - *func Scanf(format string, a ...interface{}) (n int, err error)* : 콘솔에서 형식을 지정하여 입력을 받음 
   
 - [2019-11-08] Unit 41 출력함수 Print
@@ -188,8 +188,8 @@ go 함수명
     func main() {
         go hello()		//함수를 고루틴으로 실행
     }
-    ```
-    
+  ```
+  
     
   
 - [2019-11-04] Unit 31 ~ 32 구조체 임베딩 / 인터페이스
