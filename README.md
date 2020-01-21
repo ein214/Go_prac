@@ -1,6 +1,16 @@
 # Go_prac
 ###  가장 빨리 만나는 GO언어 실습내용
 
+- [2019-12-31] 파일 입출력 함수 
+
+  - os패키지에서 제공하는 파일 처리 함수
+  - `func Create(name string)` 기존 파일 열거나 새 파일 생성
+    - `func Open(name string)` 기존 파일 오픈
+    - `func Close()` 파일 닫음 
+  - fmt에서 제공하는 파일입출력 함수
+    - `func Fprint(), func Fprintln(), func Fprintf()`
+    - `func Fscan(), func Fscanln(), func Fscanf()`
+  
 - [2019-12-30] 문자열 입출력 함수 
 
   - `func Sprint()` 값을 그대로 문자열로 만듦
